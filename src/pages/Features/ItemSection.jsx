@@ -27,44 +27,45 @@ const ItemSection = () => {
     const [activeId, setActiveId] = useState(1);
 
     return (
-        <div className='mt-5  p-4 md:p-8 rounded-lg w-full '>
+        <>
+            <div className='mt-5  p-4 md:p-8 rounded-lg w-full'>
+                <h2 className="font-bold text-md md:text-3xl text-gray-600">Let’s get started!</h2>
+                {sections.map((section) => (
+                    <div key={section.id} className="">
+                        <span className="my-3 text-xs text-gray-500 ">
+                            {section.step}
+                        </span>
 
-            {sections.map((section) => (
-                <div key={section.id} className="">
-                    <span className="my-3 text-xs text-gray-500 ">
-                        {section.step}
-                    </span>
+                        <hr className="border-gray-300" />
 
-                    <hr className="border-gray-300" />
+                        <div
+                            onClick={() => (setActiveId(section.id) && setActiveId(!activeId))}
+                            className="border border-gray-400 p-4  flex items-center justify-between my-3 cursor-pointer transition-colors duration-300 rounded-md  hover:bg-[#EDF4FF]"
+                        >
+                            <div className="flex items-center gap-2">
+                                <img src={camera} alt="" />
+                                <h3>{section.title}</h3>
+                            </div>
 
-                    <div
-                        onClick={() => (setActiveId(section.id) && setActiveId(!activeId))}
-                        className="flex items-center justify-between my-3 cursor-pointer"
-                    >
-                        <div className="flex items-center gap-2">
-                            <img src={camera} alt="" />
-                            <h3>{section.title}</h3>
+                            <div className="flex items-center gap-3">
+                                <p>2 selected</p>
+
+                                {activeId === section.id ? (
+                                    <span>▲</span>
+                                ) : (
+                                    <span>▼</span>
+                                )}
+                            </div>
                         </div>
 
-                        <div className="flex items-center gap-3">
-                            <p>2 selected</p>
+                        {activeId === section.id && <AccordionBody setActiveId={setActiveId} activeId={activeId} />}
 
-                            {activeId === section.id ? (
-                                <span>▲</span>
-                            ) : (
-                                <span>▼</span>
-                            )}
-                        </div>
+                        <hr className="border-gray-300" />
                     </div>
+                ))}
 
-                    {activeId === section.id && <AccordionBody setActiveId={setActiveId} activeId={activeId} />}
-
-                    <hr className="border-gray-300" />
-                </div>
-            ))}
-
-        </div>
-    );
+            </div>
+        </>);
 };
 
 export default ItemSection;

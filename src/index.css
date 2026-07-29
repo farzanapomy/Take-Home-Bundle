@@ -3,5 +3,8 @@
 body{
     background-color: white;
     color: black;
+    overflow-x: hidden;
+    font-family: ui-sans-serif , system-ui , 'Gilroy-SemiBold';
+    font-size: 12px;
    
 }

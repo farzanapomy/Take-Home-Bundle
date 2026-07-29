@@ -10,7 +10,7 @@ const AccordionBody = ({ setActiveId , activeId}) => {
                 <Products></Products>
             </div>
             <button className="mx-auto mt-4 flex h-8 w-full items-center justify-center rounded-md border border-[#6A5AF9] text-sm font-medium text-[#4E2FD2] transition  my-3 cursor-pointer" onClick={() =>  setActiveId(activeId + 1)}>
-                {activeId === 4 ? "Finish" : "Next: Choose your sensors"}
+                {activeId === 4 ? "Finish" : "Next: Choose your Plan"}
             </button>
         </div>
     );

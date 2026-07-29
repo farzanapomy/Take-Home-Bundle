@@ -1,11 +1,15 @@
 import ItemSection from '../Features/ItemSection';
-import Review from '../Features/Review';
+import Review from '../Features/Reviews/Review';
 
 const Home = () => {
     return (
-        <div class="mx-auto px-4 gap-4 w-screen   flex justify-between flex-col md:flex-row xl:flex-col"> 
-            <ItemSection className="w-full"></ItemSection>
-            <Review className="w-full"></Review>
+        <div className="mx-auto grid w-fit max-[1250px]:grid-cols-1 gap-4  px-4 max-[1736px]:grid-cols-3 
+         min-[1736px]:grid-cols-1">
+            <div className="col-span-2 w-full">
+                <ItemSection />
+            </div>
+
+            <Review className="w-full" />
         </div>
     );
 };
