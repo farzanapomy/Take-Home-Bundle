@@ -15,18 +15,15 @@
           "variants": [
             {
               "id": "white",
-              "name": "White",
-              "quantity": 0
+              "name": "White"
             },
             {
               "id": "gray",
-              "name": "Grey",
-              "quantity": 0
+              "name": "Grey"
             },
             {
               "id": "black",
-              "name": "Black",
-              "quantity": 0
+              "name": "Black"
             }
           ]
         },
@@ -36,8 +33,7 @@
           "description": "Smart HD Doorbell Camera",
           "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500",
           "price": 79.99,
-          "comparePrice": 99.99,
-          "quantity": 0
+          "comparePrice": 99.99
         },
         {
           "id": 3,
@@ -50,13 +46,11 @@
           "variants": [
             {
               "id": "white",
-              "name": "White",
-              "quantity": 0
+              "name": "White"
             },
             {
               "id": "black",
-              "name": "Black",
-              "quantity": 0
+              "name": "Black"
             }
           ]
         },
@@ -66,8 +60,7 @@
           "description": "Wire-Free Security Camera",
           "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500",
           "price": 89.99,
-          "comparePrice": 109.99,
-          "quantity": 0
+          "comparePrice": 109.99
         },
         {
           "id": 5,
@@ -76,12 +69,10 @@
           "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=500",
           "badge": "Save 18%",
           "price": 129.99,
-          "comparePrice": 159.99,
-          "quantity": 0
+          "comparePrice": 159.99
         }
       ]
     },
-
     {
       "id": 2,
       "title": "Choose your plan",
@@ -92,8 +83,7 @@
           "description": "Unlimited Cloud Storage",
           "image": "https://cdn-icons-png.flaticon.com/512/2920/2920244.png",
           "price": 9.99,
-          "comparePrice": 12.99,
-          "quantity": 1
+          "comparePrice": 12.99
         },
         {
           "id": 7,
@@ -101,8 +91,7 @@
           "description": "AI Detection",
           "image": "https://cdn-icons-png.flaticon.com/512/2920/2920244.png",
           "price": 4.99,
-          "comparePrice": 6.99,
-          "quantity": 0
+          "comparePrice": 6.99
         },
         {
           "id": 8,
@@ -110,12 +99,10 @@
           "description": "24/7 Emergency Monitoring",
           "image": "https://cdn-icons-png.flaticon.com/512/2920/2920244.png",
           "price": 19.99,
-          "comparePrice": 24.99,
-          "quantity": 0
+          "comparePrice": 24.99
         }
       ]
     },
-
     {
       "id": 3,
       "title": "Choose your sensors",
@@ -126,8 +113,7 @@
           "description": "Door & Window Sensor",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 19.99,
-          "comparePrice": 24.99,
-          "quantity": 2
+          "comparePrice": 24.99
         },
         {
           "id": 10,
@@ -135,8 +121,7 @@
           "description": "Indoor Motion Detection",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 24.99,
-          "comparePrice": 29.99,
-          "quantity": 1
+          "comparePrice": 29.99
         },
         {
           "id": 11,
@@ -144,8 +129,7 @@
           "description": "Temperature & Humidity",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 29.99,
-          "comparePrice": 34.99,
-          "quantity": 0
+          "comparePrice": 34.99
         },
         {
           "id": 12,
@@ -153,12 +137,10 @@
           "description": "Water Leak Detection",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 17.99,
-          "comparePrice": 21.99,
-          "quantity": 0
+          "comparePrice": 21.99
         }
       ]
     },
-
     {
       "id": 4,
       "title": "Add extra protection",
@@ -169,8 +151,7 @@
           "description": "Continuous Charging",
           "image": "https://cdn-icons-png.flaticon.com/512/869/869869.png",
           "price": 29.99,
-          "comparePrice": 39.99,
-          "quantity": 1
+          "comparePrice": 39.99
         },
         {
           "id": 14,
@@ -178,8 +159,7 @@
           "description": "Local Recording",
           "image": "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
           "price": 17.99,
-          "comparePrice": 22.99,
-          "quantity": 0
+          "comparePrice": 22.99
         },
         {
           "id": 15,
@@ -187,8 +167,7 @@
           "description": "Easy Installation",
           "image": "https://cdn-icons-png.flaticon.com/512/847/847969.png",
           "price": 12.99,
-          "comparePrice": 15.99,
-          "quantity": 0
+          "comparePrice": 15.99
         },
         {
           "id": 16,
@@ -196,8 +175,7 @@
           "description": "Wireless Chime",
           "image": "https://cdn-icons-png.flaticon.com/512/619/619153.png",
           "price": 24.99,
-          "comparePrice": 29.99,
-          "quantity": 0
+          "comparePrice": 29.99
         }
       ]
     }
