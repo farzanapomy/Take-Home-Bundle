@@ -1,6 +1,6 @@
 import badge from "../../../assets/guarantee-badge.png";
 
-const CheckoutSection = () => {
+const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
     return (
         <div className="rounded-lg bg-[#EDF4FF] mt-5  p-4 h-fit">
 
@@ -17,11 +17,11 @@ const CheckoutSection = () => {
                     </div>
 
                     <p className="text-md text-gray-500 line-through">
-                        $238.81
+                        ${totalCrossPrice.toFixed(2)}
                     </p>
 
                     <p className="text-lg font-bold text-[#4E2FD2]">
-                        $187.89
+                        ${totalPrice.toFixed(2)}
                     </p>
 
                 </div>
