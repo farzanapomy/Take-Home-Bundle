@@ -14,15 +14,15 @@
           "comparePrice": 35.98,
           "variants": [
             {
-              "id": "white",
+              "id": "White",
               "name": "White"
             },
             {
-              "id": "gray",
+              "id": "Gray",
               "name": "Grey"
             },
             {
-              "id": "black",
+              "id": "Black",
               "name": "Black"
             }
           ]
@@ -45,12 +45,12 @@
           "comparePrice": 49.99,
           "variants": [
             {
-              "id": "white",
+              "id": "White",
               "name": "White"
             },
             {
-              "id": "black",
-              "name": "Black"
+              "id": "Black",
+              "name": "Black" 
             }
           ]
         },
