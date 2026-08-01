@@ -1,6 +1,20 @@
 import { data } from "../data/data.json";
 
-export const initialState = {
+let savedProducts = null;
+
+try {
+    const stored = localStorage.getItem("saved");
+
+    if (stored) {
+        savedProducts = JSON.parse(stored);
+    }
+} catch (error) {
+    console.error(error);
+}
+
+const initialState = {
     activeStep: 1,
-    products: data,
+    products: savedProducts ?? data,
 };
+
+export { initialState };
