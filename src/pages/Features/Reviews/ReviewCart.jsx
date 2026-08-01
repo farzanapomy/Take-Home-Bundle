@@ -1,7 +1,9 @@
 import Counter from "../../common/Counter";
 
-const ReviewCart = ({ title, products }) => {
+const ReviewCart = ({ title, products, dispatch }) => {
+
     if (!products.length) return null;
+
 
     return (
         <div className="mb-4">
@@ -27,7 +29,7 @@ const ReviewCart = ({ title, products }) => {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <Counter product={item} />
+                        <Counter data={item} quantity={item.quantity} dispatch={dispatch} />
 
                         <div className="text-right">
                             <p className="text-xs text-gray-400 line-through">

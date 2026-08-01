@@ -1,12 +1,7 @@
-import { useContext, useState } from "react";
 import Counter from "../../common/Counter";
-import { BuilderContext } from "../../../context/BuilderContext";
-import { ACTIONS } from "../../../context/actionTypes";
 
-const Products = ({ data }) => {
-    const [selected, setSelected] = useState("White");
-    const { dispatch } = useContext(BuilderContext);
-    // console.log(data);
+const Products = ({ data, dispatch, selected, setSelected }) => {
+   
     return (
         <div className="my-3 ">
 
@@ -60,30 +55,16 @@ const Products = ({ data }) => {
 
                     <div className="mt-3 flex justify-between items-center">
                         <Counter
+                            data={data}
                             quantity={data.quantity}
-                            onIncrement={() =>
-                                dispatch({
-                                    type: ACTIONS.INCREMENT,
-                                    payload: {
-                                        id: data.id,
-                                    },
-                                })
-                            }
-                            onDecrement={() =>
-                                dispatch({
-                                    type: ACTIONS.DECREMENT,
-                                    payload: {
-                                        id: data.id,
-                                    },
-                                })
-                            }
+                            dispatch={dispatch}
+                            
                         />
 
                         <div className="text-right">
                             <p className="text-xs line-through text-gray-400">
                                 ${data?.comparePrice}
                             </p>
-
                             <p className="font-semibold text-[#4E2FD2]">
                                 ${data?.price}
                             </p>

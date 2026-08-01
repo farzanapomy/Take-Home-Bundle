@@ -7,7 +7,7 @@ import { BuilderContext } from "../../../context/BuilderContext";
 
 const Review = () => {
 
-    const { state } = useContext(BuilderContext);
+    const { state , dispatch } = useContext(BuilderContext);
     const selectedProducts = state?.products?.map((category) => ({
         ...category,
         products: category?.products?.filter(
@@ -62,6 +62,7 @@ const Review = () => {
                                 <ReviewCart
                                     title={category.title}
                                     products={category.products}
+                                    dispatch={dispatch}
                                 />
                             </div>
                         ))}
