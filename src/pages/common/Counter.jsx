@@ -1,7 +1,6 @@
 
 const Counter = ({ quantity, onIncrement, onDecrement }) => {
 
-//    console.log(quantity);
 
     return (
         <div className="flex items-center  gap-2">

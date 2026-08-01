@@ -14,7 +14,7 @@ const Review = () => {
             (product) => product.quantity > 0
         ),
     }));
-    console.log(selectedProducts);
+    // console.log(selectedProducts);
 
     const totalPrice = selectedProducts.reduce(
         (total, category) =>
