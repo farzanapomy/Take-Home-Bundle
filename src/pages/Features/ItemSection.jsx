@@ -34,10 +34,12 @@ const ItemSection = () => {
     const [activeId, setActiveId] = useState(1);
 
     const { state } = useContext(BuilderContext);
+    const [selected, setSelected] = useState("White");
+    const { dispatch } = useContext(BuilderContext);
 
 
     return (
-        <div className="mt-5 w-full rounded-lg p-4 md:p-8">
+        <div className="mt-5 w-full rounded-lg p-5 md:p-8 border border-gray-300 ">
             <h2 className="text-md font-bold text-gray-600 md:text-3xl">
                 Let's get started!
             </h2>
@@ -46,6 +48,7 @@ const ItemSection = () => {
                 const filteredProducts = state?.products?.filter(
                     (product) => (product?.title === section?.title)
                 );
+                console.log(filteredProducts);
                 return (
                     <div key={section.id}>
                         <span className="my-3 text-xs text-gray-500">
@@ -60,12 +63,18 @@ const ItemSection = () => {
                         >
                             <div className="flex items-center gap-2">
                                 <img src={camera} alt="" />
-                                <h3>{section.title}</h3>
+                                <h3 className="font-semibold text-lg text-gray-500">{section.title}</h3>
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <p>{state?.products?.filter(p => p.quantity > 0).length} selected</p>
-
+                                <p>
+                                    {(
+                                        JSON.parse(localStorage?.getItem("saved"))
+                                            ?.find((cat) => cat?.id === filteredProducts?.find((p) => p?.id)?.id)
+                                            ?.products.filter((product) => product?.quantity).length ?? 0
+                                    )} {" "}
+                                    selected
+                                </p>
                                 {activeId === section.id ? <span>▲</span> : <span>▼</span>}
                             </div>
                         </div>
@@ -75,6 +84,9 @@ const ItemSection = () => {
                                 data={filteredProducts}
                                 activeId={activeId}
                                 setActiveId={setActiveId}
+                                dispatch={dispatch}
+                                selected={selected}
+                                setSelected={setSelected}
                             />
                         )}
 
