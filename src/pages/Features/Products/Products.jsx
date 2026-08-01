@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Counter from "../../common/Counter";
+import { BuilderContext } from "../../../context/BuilderContext";
+import { ACTIONS } from "../../../context/actionTypes";
 
 const Products = ({ data }) => {
     const [selected, setSelected] = useState("White");
-    console.log(data);
+    const { dispatch } = useContext(BuilderContext);
+    // console.log(data);
     return (
-        <div className="my-3">
+        <div className="my-3 ">
 
             <div
                 key={data?.id}
-                className="w-full flex items-center gap-3 border bg-white border-gray-300 p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="w-full flex items-center gap-3 border bg-white border-gray-300 p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full"
             >
                 <div className="flex w-1/3 justify-center">
                     <img
@@ -29,7 +32,7 @@ const Products = ({ data }) => {
                         </p>
                         <a href="#" className="mt-1 block text-xs text-[#1E3A5F] hover:underline md:ml-1 md:inline" > Learn More → </a>
                     </div>
-                    
+
                     {data?.variants && (
                         <div className="my-2 flex flex-wrap gap-2">
                             {data?.variants.map((variant) => (
@@ -56,7 +59,25 @@ const Products = ({ data }) => {
                     )}
 
                     <div className="mt-3 flex justify-between items-center">
-                        <Counter />
+                        <Counter
+                            quantity={data.quantity}
+                            onIncrement={() =>
+                                dispatch({
+                                    type: ACTIONS.INCREMENT,
+                                    payload: {
+                                        id: data.id,
+                                    },
+                                })
+                            }
+                            onDecrement={() =>
+                                dispatch({
+                                    type: ACTIONS.DECREMENT,
+                                    payload: {
+                                        id: data.id,
+                                    },
+                                })
+                            }
+                        />
 
                         <div className="text-right">
                             <p className="text-xs line-through text-gray-400">

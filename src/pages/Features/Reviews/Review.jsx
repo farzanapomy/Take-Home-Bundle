@@ -2,8 +2,23 @@ import ReviewCart from "./ReviewCart";
 import plan from "../../../assets/plan.svg";
 import ship from "../../../assets/shipping.svg";
 import CheckoutSection from "../CheckoutSection/CheckoutSection";
+import { useContext } from "react";
+import { BuilderContext } from "../../../context/BuilderContext";
 
 const Review = () => {
+
+    const { state } = useContext(BuilderContext);
+    const selectedProducts = state?.products?.map((category) => ({
+        ...category,
+        products: category?.products?.filter(
+            (product) => product.quantity > 0
+        ),
+    }));
+    console.log(selectedProducts);
+
+    const totalPrice = 0
+
+
     return (
         <div className="mt-5 h-fit rounded-lg bg-[#EDF4FF] p-5 mx-auto">
 
@@ -22,16 +37,23 @@ const Review = () => {
 
             <hr className="my-5 border-gray-300" />
             <div className="grid grid-cols-1 gap-5 xxl:grid-cols-2">
-                <div> <div className="space-y-3">
-                    <p className="text-center text-sm text-gray-500">
-                        No items selected yet.
-                    </p>
-
-                    {[1, 2, 3].map((item) => (
-                        <ReviewCart key={item} />
-                    ))}
-                </div>
-
+                <div>
+                    <div className="space-y-3">
+                        {selectedProducts.some((category) => category.products.length > 0) ? (
+                            selectedProducts.map((category) => (
+                                <ReviewCart
+                                    key={category.id}
+                                    title={category.title}
+                                    products={category.products}
+                                    totalPrice = (totalPrice + (item.price * item.quantity).toFixed(2))
+                                />
+                        ))
+                        ) : (
+                        <p className="text-center text-sm text-gray-500">
+                            No items selected yet.
+                        </p>
+                        )}
+                    </div>
                     <hr className="my-5 border-gray-300" />
 
 

@@ -35,7 +35,6 @@ const ItemSection = () => {
 
     const { state } = useContext(BuilderContext);
 
-    console.log(state);
 
     return (
         <div className="mt-5 w-full rounded-lg p-4 md:p-8">
@@ -47,7 +46,6 @@ const ItemSection = () => {
                 const filteredProducts = state?.products?.filter(
                     (product) => (product?.title === section?.title)
                 );
-                    console.log(filteredProducts);
                 return (
                     <div key={section.id}>
                         <span className="my-3 text-xs text-gray-500">
@@ -66,7 +64,7 @@ const ItemSection = () => {
                             </div>
 
                             <div className="flex items-center gap-3">
-                                <p>2 selected</p>
+                                <p>{state?.products?.filter(p => p.quantity > 0).length} selected</p>
 
                                 {activeId === section.id ? <span>▲</span> : <span>▼</span>}
                             </div>
