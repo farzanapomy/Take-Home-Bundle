@@ -40,10 +40,16 @@ const Review = () => {
 
     return (
         <div className="mt-5 h-fit rounded-lg bg-[#EDF4FF] p-5 mx-auto w-full ">
-
-            <p className="text-xs uppercase tracking-wide text-gray-400">
-                Review
-            </p>
+            <div className="flex items-center justify-between">
+                <p className="text-xs uppercase tracking-wide text-gray-400">
+                    Review
+                </p>
+                {selectedProducts?.length > 0 && (
+                    <button className="rounded-md border border-[#4E2FD2] px-3 py-1 text-sm font-semibold text-[#4E2FD2] hover:bg-[#EDF4FF] transition">
+                        Saved Cart
+                    </button>
+                )}
+            </div>
 
             <h2 className="mt-1 text-xl font-bold text-gray-700">
                 Your security system
