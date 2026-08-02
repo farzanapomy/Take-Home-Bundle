@@ -39,8 +39,8 @@ const Review = () => {
 
     
     return (
-        <div className="mt-5 h-fit rounded-lg bg-[#EDF4FF] p-5 mx-auto">
-
+        <div className="mt-5 h-fit rounded-lg bg-[#EDF4FF] p-5 mx-auto w-full ">
+               
             <p className="text-xs uppercase tracking-wide text-gray-400">
                 Review
             </p>

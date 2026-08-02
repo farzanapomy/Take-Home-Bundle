@@ -6,12 +6,20 @@ const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
         <div className="rounded-lg bg-[#EDF4FF] mt-5  p-4 h-fit">
 
             <div className="flex items-center justify-between">
-                <img
-                    src={badge}
-                    alt="Guarantee"
-                    className="w-16 h-16 object-contain"
-                />
-
+                <div className="flex items-center gap-2">
+                    <img
+                        src={badge}
+                        alt="Guarantee"
+                        className="w-16 h-16 object-contain"
+                    />
+                    <div className="block min-[1250px]:hidden min-[1736px]:block">
+                        <p className="text-sm font-bold text-gray-700">
+                            30-day hassle-free returns
+                        </p>
+                        <p>
+                            If you're not totally in love with the product, we will refund you 100%.</p>
+                    </div>
+                </div>
                 <div className="text-right">
                     <div className="inline-block rounded bg-[#4E2FD2] px-2 text-xs py-1 font-medium text-white">
                         as low as $19/19/mo
