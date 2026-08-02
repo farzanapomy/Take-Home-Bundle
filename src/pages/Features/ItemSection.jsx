@@ -34,7 +34,6 @@ const ItemSection = () => {
     const [activeId, setActiveId] = useState(1);
 
     const { state } = useContext(BuilderContext);
-    const [selected, setSelected] = useState("White");
     const { dispatch } = useContext(BuilderContext);
 
 
@@ -48,7 +47,7 @@ const ItemSection = () => {
                 const filteredProducts = state?.products?.filter(
                     (product) => (product?.title === section?.title)
                 );
-                console.log(filteredProducts);
+                // console.log(filteredProducts);
                 return (
                     <div key={section.id}>
                         <span className="my-3 text-xs text-gray-500">
@@ -68,11 +67,10 @@ const ItemSection = () => {
 
                             <div className="flex items-center gap-3">
                                 <p>
-                                    {(
-                                        JSON.parse(localStorage?.getItem("saved"))
-                                            ?.find((cat) => cat?.id === filteredProducts?.find((p) => p?.id)?.id)
-                                            ?.products.filter((product) => product?.quantity).length ?? 0
-                                    )} {" "}
+                                    {filteredProducts?.[0]?.products?.reduce(
+                                        (sum, product) => sum + (product.quantity || 0),
+                                        0
+                                    ) ?? 0}{" "}
                                     selected
                                 </p>
                                 {activeId === section.id ? <span>▲</span> : <span>▼</span>}
@@ -85,8 +83,7 @@ const ItemSection = () => {
                                 activeId={activeId}
                                 setActiveId={setActiveId}
                                 dispatch={dispatch}
-                                selected={selected}
-                                setSelected={setSelected}
+
                             />
                         )}
 
