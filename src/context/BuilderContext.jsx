@@ -25,7 +25,7 @@ const BuilderProvider = ({ children }) => {
     // console.log("Save:", saved);
 
     if (saved.length > 0) {
-      localStorage.setItem("saved", JSON.stringify(saved));
+      localStorage.setItem("products", JSON.stringify(saved));
     }
   }, [state?.products]);
 

@@ -1,7 +1,8 @@
+import { ACTIONS } from "../../../context/actionTypes";
 import Counter from "../../common/Counter";
 
-const Products = ({ data, dispatch, selected, setSelected }) => {
-   
+const Products = ({ data, dispatch }) => {
+
     return (
         <div className="my-3 ">
 
@@ -28,37 +29,40 @@ const Products = ({ data, dispatch, selected, setSelected }) => {
                         <a href="#" className="mt-1 block text-xs text-[#1E3A5F] hover:underline md:ml-1 md:inline" > Learn More → </a>
                     </div>
 
-                    {data?.variants && (
-                        <div className="my-2 flex flex-wrap gap-2">
-                            {data?.variants.map((variant) => (
-                                <button
-                                    key={variant.id}
-                                    onClick={() => setSelected(variant.name)}
-                                    className={`flex items-center border rounded-sm p-1 px-2 ${selected === variant.name
-                                        ? "border-[#35C759]"
-                                        : "border-gray-300"
-                                        }`}
-                                >
-                                    <img
-                                        src={data?.image}
-                                        alt={variant.name}
-                                        className="w-5 h-5"
-                                    />
-
-                                    <span className="ml-1 text-xs">
-                                        {variant.name}
-                                    </span>
-                                </button>
-                            ))}
-                        </div>
-                    )}
+                    <div className="my-2 flex flex-wrap gap-2">
+                        {data?.variants?.map((variant) => (
+                            <button
+                                key={variant.id}
+                                onClick={() =>
+                                    dispatch({
+                                        type: ACTIONS.SET_COLOR,
+                                        payload: {
+                                            productId: data?.id,
+                                            colorId: variant?.id,
+                                        },
+                                    })
+                                }
+                                className={`flex items-center border rounded-sm p-1 px-2 cursor-pointer ${data?.selectedColor === variant.id
+                                    ? "border-[#35C759]"
+                                    : "border-gray-300"
+                                    }`}
+                            >
+                                <img
+                                    src={data?.image}
+                                    alt={variant?.name}
+                                    className="w-5 h-5"
+                                />
+                                <span className="ml-1 text-xs">{variant?.name}</span>
+                            </button>
+                        ))}
+                    </div>
 
                     <div className="mt-3 flex justify-between items-center">
                         <Counter
                             data={data}
-                            quantity={data.quantity}
+                            quantity={data?.quantity}
                             dispatch={dispatch}
-                            
+
                         />
 
                         <div className="text-right">
@@ -73,7 +77,7 @@ const Products = ({ data, dispatch, selected, setSelected }) => {
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 
