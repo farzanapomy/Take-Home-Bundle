@@ -4,7 +4,8 @@ import Counter from "../../common/Counter";
 const Products = ({ data, dispatch }) => {
 
     return (
-        <div className="my-3 ">
+        <div className={`my-3 ${data?.quantity > 0 ? "border border-[#35C759]" : ""
+            }`}>
 
             <div
                 key={data?.id}
