@@ -1,7 +1,7 @@
 import badge from "../../../assets/guarantee-badge.png";
 import Swal from "sweetalert2";
 
-const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
+const CheckoutSection = ({ totalPrice, totalCrossPrice, savings }) => {
     return (
         <div className="rounded-lg bg-[#EDF4FF] mt-5  p-4 h-fit">
 
@@ -37,7 +37,7 @@ const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
             </div>
 
             <p className="text-[11px] text-center font-semibold text-[#00A67E] mt-2">
-                Congrats! You're saving $50.92 on your security bundle!
+                Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
             </p>
 
             <button
