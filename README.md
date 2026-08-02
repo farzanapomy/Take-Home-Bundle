@@ -35,9 +35,10 @@ npm run build
 - Live Review Panel
 - LocalStorage Persistence
 - Responsive Design
+## Live Demo
 
-## Live Demo  : take-home-bundle.vercel.app 
+🌐 [View Live Demo](https://take-home-bundle.vercel.app)
 
-## GitHub
+## GitHub Repository
 
-Repository Link
+📂 [Take-Home-Bundle Repository](https://github.com/farzanapomy/Take-Home-Bundle)
