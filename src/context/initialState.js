@@ -1,20 +1,31 @@
 import { data } from "../data/data.json";
 
-let savedProducts = null;
+const saved = JSON.parse(localStorage.getItem("products") || "[]");
 
-try {
-    const stored = localStorage.getItem("saved");
+const merged = data.map((category) => {
+    const savedCategory = saved.find((c) => c.id === category.id);
 
-    if (stored) {
-        savedProducts = JSON.parse(stored);
-    }
-} catch (error) {
-    console.error(error);
-}
+    if (!savedCategory) return category;
 
-const initialState = {
+    return {
+        ...category,
+        products: category.products.map((product) => {
+            const savedProduct = savedCategory.products.find(
+                (p) => p.id === product.id
+            );
+
+            return savedProduct
+                ? {
+                    ...product,
+                    quantity: savedProduct.quantity,
+                    selectedColor: savedProduct.selectedColor,
+                }
+                : product;
+        }),
+    };
+});
+
+export const initialState = {
     activeStep: 1,
-    products: savedProducts ?? data,
+    products: merged,
 };
-
-export { initialState };

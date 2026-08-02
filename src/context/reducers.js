@@ -2,22 +2,9 @@ import { ACTIONS } from "./actionTypes";
 
 export const builderReducer = (state, action) => {
     switch (action.type) {
-        // Load Products
-        case ACTIONS.SET_PRODUCTS:
-            return {
-                ...state,
-                products: action.payload,
-            };
 
-        case ACTIONS.SET_ACTIVE_STEP:
-            return {
-                ...state,
-                activeStep: action.payload,
-            };
-
-
-        case ACTIONS.INCREMENT:
-            return {
+        case ACTIONS.INCREMENT: {
+            const updatedState = {
                 ...state,
                 products: state.products.map((category) => ({
                     ...category,
@@ -31,6 +18,16 @@ export const builderReducer = (state, action) => {
                     ),
                 })),
             };
+
+            // console.log(
+            //     updatedState.products[0].products.map((p) => ({
+            //         name: p.name,
+            //         quantity: p.quantity,
+            //     }))
+            // );
+
+            return updatedState;
+        }
 
 
         case ACTIONS.DECREMENT:
@@ -49,17 +46,21 @@ export const builderReducer = (state, action) => {
                 })),
             };
 
-        case ACTIONS.CHANGE_VARIANT:
+
+        case ACTIONS.SET_COLOR:
             return {
                 ...state,
-                products: state.products.map((product) =>
-                    product.id === action.payload.id
-                        ? {
-                            ...product,
-                            selectedVariant: action.payload.variant,
-                        }
-                        : product
-                ),
+                products: state?.products?.map((category) => ({
+                    ...category,
+                    products: category?.products?.map((product) =>
+                        product.id === action?.payload.productId
+                            ? {
+                                ...product,
+                                selectedColor: action?.payload.colorId,
+                            }
+                            : product
+                    ),
+                })),
             };
 
         default:
