@@ -1,4 +1,5 @@
 import badge from "../../../assets/guarantee-badge.png";
+import Swal from "sweetalert2";
 
 const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
     return (
@@ -31,7 +32,24 @@ const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
                 Congrats! You're saving $50.92 on your security bundle!
             </p>
 
-            <button className="text-lg my-2 h-10 w-full rounded-md bg-[#4E2FD2] font-bold text-white transition hover:bg-[#4025bb] cursor-pointer">
+            <button
+                className="text-lg my-2 h-10 w-full rounded-md bg-[#4E2FD2] font-bold text-white transition hover:bg-[#4025bb] cursor-pointer"
+                onClick={() => {
+                    Swal.fire({
+                        title: "🎉 Thank You!",
+                        html: ` <p>Your order has been placed successfully.</p>`,
+                        icon: "success",
+                        confirmButtonText: "Continue Shopping",
+                        confirmButtonColor: "#4E2FD2",
+                        showClass: {
+                            popup: "animate__animated animate__zoomIn",
+                        },
+                        hideClass: {
+                            popup: "animate__animated animate__zoomOut",
+                        },
+                    });
+                }}
+            >
                 Checkout
             </button>
 
@@ -40,7 +58,7 @@ const CheckoutSection = ({ totalPrice, totalCrossPrice }) => {
                     Save my system for later
                 </button>
             </div>
-        </div>
+        </div >
     );
 };
 
