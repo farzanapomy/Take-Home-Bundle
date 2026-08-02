@@ -7,13 +7,14 @@ import { BuilderContext } from "../../../context/BuilderContext";
 
 const Review = () => {
 
-    const { state , dispatch } = useContext(BuilderContext);
-    const selectedProducts = state?.products?.map((category) => ({
-        ...category,
-        products: category?.products?.filter(
-            (product) => product.quantity > 0
-        ),
-    }));
+    const { state, dispatch } = useContext(BuilderContext);
+    const selectedProducts = state.products
+        .map((category) => ({
+            ...category,
+            products: category.products.filter((p) => p.quantity > 0),
+        }))
+        .filter((category) => category.products.length > 0);
+
     // console.log(selectedProducts);
 
     const totalPrice = selectedProducts.reduce(
@@ -33,8 +34,10 @@ const Review = () => {
                 0
             ),
         0
+   
     );
 
+    
     return (
         <div className="mt-5 h-fit rounded-lg bg-[#EDF4FF] p-5 mx-auto">
 
