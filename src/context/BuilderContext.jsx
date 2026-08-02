@@ -11,24 +11,21 @@ const BuilderProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    if (!state.products.length) return;
-
     const saved = state.products
-      ?.map((category) => ({
+      .map((category) => ({
         ...category,
-        products: category?.products?.filter(
-          (product) => product?.quantity > 0
+        products: category.products.filter(
+          (product) => product.quantity > 0
         ),
       }))
-      .filter((category) => category?.products?.length > 0);
+      .filter((category) => category.products.length > 0);
 
-    // console.log("Save:", saved);
-
-    if (saved.length > 0) {
+    if (saved.length === 0) {
+      localStorage.removeItem("products");
+    } else {
       localStorage.setItem("products", JSON.stringify(saved));
     }
-  }, [state?.products]);
-
+  }, [state.products]);
 
   return (
     <BuilderContext.Provider

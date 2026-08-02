@@ -34,13 +34,13 @@ const Review = () => {
                 0
             ),
         0
-   
-    );
 
-    
+    );
+    const savings = totalCrossPrice - totalPrice;
+
     return (
         <div className="mt-5 h-fit rounded-lg bg-[#EDF4FF] p-5 mx-auto w-full ">
-               
+
             <p className="text-xs uppercase tracking-wide text-gray-400">
                 Review
             </p>
@@ -117,7 +117,7 @@ const Review = () => {
 
                             <hr className="my-5 border-gray-300" />
 
-                            <CheckoutSection totalPrice={totalPrice} totalCrossPrice={totalCrossPrice} />
+                            <CheckoutSection totalPrice={totalPrice} totalCrossPrice={totalCrossPrice} savings={savings} />
                         </div>
                     </>
                 ) : (

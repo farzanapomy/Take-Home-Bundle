@@ -3,7 +3,7 @@ import { data } from "../data/data.json";
 const saved = JSON.parse(localStorage.getItem("products") || "[]");
 
 const merged = data.map((category) => {
-    const savedCategory = saved.find((c) => c.id === category.id);
+    const savedCategory = saved?.find((c) => c?.id === category?.id);
 
     if (!savedCategory) return category;
 
@@ -11,7 +11,7 @@ const merged = data.map((category) => {
         ...category,
         products: category.products.map((product) => {
             const savedProduct = savedCategory.products.find(
-                (p) => p.id === product.id
+                (p) => p?.id === product.id
             );
 
             return savedProduct
