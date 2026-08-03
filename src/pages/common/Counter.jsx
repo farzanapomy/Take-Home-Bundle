@@ -11,7 +11,7 @@ const Counter = ({ data, quantity, dispatch }) => {
                     type: "DECREMENT",
                     payload: {
                         productId: data.id,
-                        variantId: data.selectedVariant?.id,
+                        variantId: data?.selectedVariant?.id,
                     },
                 })}
                 disabled={quantity === 0}>

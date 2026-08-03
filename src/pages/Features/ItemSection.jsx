@@ -67,10 +67,21 @@ const ItemSection = () => {
 
                             <div className="flex items-center gap-3">
                                 <p>
-                                    {filteredProducts?.[0]?.products?.reduce(
-                                        (sum, product) => sum + (product.quantity || 0),
-                                        0
-                                    ) ?? 0}{" "}
+                                    {
+                                        filteredProducts?.[0]?.products?.reduce((sum, product) => {
+                                            if (product.variants?.length) {
+                                                return (
+                                                    sum +
+                                                    product.variants.reduce(
+                                                        (variantSum, variant) => variantSum + (variant.quantity || 0),
+                                                        0
+                                                    )
+                                                );
+                                            }
+
+                                            return sum + (product.quantity || 0);
+                                        }, 0) ?? 0
+                                    } {" "}
                                     selected
                                 </p>
                                 {activeId === section.id ? <span>▲</span> : <span>▼</span>}
