@@ -3,31 +3,39 @@ import { ACTIONS } from "./actionTypes";
 export const builderReducer = (state, action) => {
     switch (action.type) {
 
-        case ACTIONS.INCREMENT: {
-            const updatedState = {
+        case ACTIONS.INCREMENT:
+            return {
                 ...state,
                 products: state.products.map((category) => ({
                     ...category,
-                    products: category.products.map((product) =>
-                        product.id === action.payload.id
-                            ? {
+                    products: category.products.map((product) => {
+                        if (product.id !== action.payload?.productId) {
+                            return product;
+                        }
+
+                        // Variant product
+                        if (product.variants?.length) {
+                            return {
                                 ...product,
-                                quantity: (product.quantity || 0) + 1,
-                            }
-                            : product
-                    ),
+                                variants: product.variants.map((variant) =>
+                                    variant.id === action.payload.variantId
+                                        ? {
+                                            ...variant,
+                                            quantity: variant.quantity + 1,
+                                        }
+                                        : variant
+                                ),
+                            };
+                        }
+
+                        // Normal product
+                        return {
+                            ...product,
+                            quantity: product.quantity + 1,
+                        };
+                    }),
                 })),
             };
-
-            // console.log(
-            //     updatedState.products[0].products.map((p) => ({
-            //         name: p.name,
-            //         quantity: p.quantity,
-            //     }))
-            // );
-
-            return updatedState;
-        }
 
 
         case ACTIONS.DECREMENT:
@@ -35,14 +43,32 @@ export const builderReducer = (state, action) => {
                 ...state,
                 products: state.products.map((category) => ({
                     ...category,
-                    products: category.products.map((product) =>
-                        product.id === action.payload.id
-                            ? {
+                    products: category.products.map((product) => {
+                        if (product.id !== action.payload.productId) {
+                            return product;
+                        }
+
+                        // Variant product
+                        if (product.variants?.length) {
+                            return {
                                 ...product,
-                                quantity: Math.max(0, (product.quantity || 0) - 1),
-                            }
-                            : product
-                    ),
+                                variants: product.variants.map((variant) =>
+                                    variant.id === action.payload.variantId
+                                        ? {
+                                            ...variant,
+                                            quantity: Math.max(variant.quantity - 1, 0),
+                                        }
+                                        : variant
+                                ),
+                            };
+                        }
+
+                        // Normal product
+                        return {
+                            ...product,
+                            quantity: Math.max((product.quantity || 0) - 1, 0),
+                        };
+                    }),
                 })),
             };
 
@@ -50,13 +76,13 @@ export const builderReducer = (state, action) => {
         case ACTIONS.SET_COLOR:
             return {
                 ...state,
-                products: state?.products?.map((category) => ({
+                products: state.products.map((category) => ({
                     ...category,
-                    products: category?.products?.map((product) =>
-                        product.id === action?.payload.productId
+                    products: category.products.map((product) =>
+                        product.id === action.payload.productId
                             ? {
                                 ...product,
-                                selectedColor: action?.payload.colorId,
+                                selectedVariant: action.payload.variantId,
                             }
                             : product
                     ),

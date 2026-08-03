@@ -11,55 +11,64 @@
           "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500",
           "badge": "Save 22%",
           "price": 27.98,
+          "quantity": 0,
           "comparePrice": 35.98,
           "variants": [
             {
               "id": "White",
-              "name": "White"
+              "name": "White",
+              "quantity": 0
             },
             {
               "id": "Gray",
-              "name": "Grey"
+              "name": "Grey",
+              "quantity": 0
             },
             {
               "id": "Black",
-              "name": "Black"
+              "name": "Black",
+              "quantity": 0
             }
           ]
         },
         {
           "id": 2,
-          "name": "Video Doorbell Pro",
-          "description": "Smart HD Doorbell Camera",
+          "name": "Wyze Cam Pan v3",
+          "description": "360° pan and 180° tilt security camera. Learn More",
           "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500",
           "price": 79.99,
-          "comparePrice": 99.99
-        },
-        {
-          "id": 3,
-          "name": "Cam Pan v3",
-          "description": "360° Indoor Camera",
-          "image": "https://images.unsplash.com/photo-1580894908361-967195033215?w=500",
-          "badge": "Save 15%",
-          "price": 39.99,
-          "comparePrice": 49.99,
+          "quantity": 0,
+          "comparePrice": 99.99,
           "variants": [
             {
               "id": "White",
-              "name": "White"
+              "name": "White",
+              "quantity": 0
             },
             {
               "id": "Black",
-              "name": "Black" 
+              "name": "Black",
+              "quantity": 0
             }
           ]
         },
         {
+          "id": 3,
+          "name": "Wyze Duo Cam Doorbell",
+          "description": "Two cameras. Two views. Double the porch protection.",
+          "image": "https://images.unsplash.com/photo-1580894908361-967195033215?w=500",
+          "badge": "Save 15%",
+          "price": 39.99,
+          "quantity": 0,
+          "comparePrice": 49.99
+        },
+        {
           "id": 4,
-          "name": "Battery Cam Pro",
-          "description": "Wire-Free Security Camera",
+          "name": "Wyze Battery Cam Pro",
+          "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
           "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500",
           "price": 89.99,
+          "quantity": 0,
           "comparePrice": 109.99
         },
         {
@@ -69,6 +78,7 @@
           "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=500",
           "badge": "Save 18%",
           "price": 129.99,
+          "quantity": 0,
           "comparePrice": 159.99
         }
       ]
@@ -83,6 +93,7 @@
           "description": "Unlimited Cloud Storage",
           "image": "https://cdn-icons-png.flaticon.com/512/2920/2920244.png",
           "price": 9.99,
+          "quantity": 0,
           "comparePrice": 12.99
         },
         {
@@ -91,6 +102,7 @@
           "description": "AI Detection",
           "image": "https://cdn-icons-png.flaticon.com/512/2920/2920244.png",
           "price": 4.99,
+          "quantity": 0,
           "comparePrice": 6.99
         },
         {
@@ -99,6 +111,7 @@
           "description": "24/7 Emergency Monitoring",
           "image": "https://cdn-icons-png.flaticon.com/512/2920/2920244.png",
           "price": 19.99,
+          "quantity": 0,
           "comparePrice": 24.99
         }
       ]
@@ -113,6 +126,7 @@
           "description": "Door & Window Sensor",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 19.99,
+          "quantity": 0,
           "comparePrice": 24.99
         },
         {
@@ -121,6 +135,7 @@
           "description": "Indoor Motion Detection",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 24.99,
+          "quantity": 0,
           "comparePrice": 29.99
         },
         {
@@ -129,6 +144,7 @@
           "description": "Temperature & Humidity",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 29.99,
+          "quantity": 0,
           "comparePrice": 34.99
         },
         {
@@ -137,6 +153,7 @@
           "description": "Water Leak Detection",
           "image": "https://cdn-icons-png.flaticon.com/512/1067/1067566.png",
           "price": 17.99,
+          "quantity": 0,
           "comparePrice": 21.99
         }
       ]
@@ -151,6 +168,7 @@
           "description": "Continuous Charging",
           "image": "https://cdn-icons-png.flaticon.com/512/869/869869.png",
           "price": 29.99,
+          "quantity": 0,
           "comparePrice": 39.99
         },
         {
@@ -159,6 +177,7 @@
           "description": "Local Recording",
           "image": "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
           "price": 17.99,
+          "quantity": 0,
           "comparePrice": 22.99
         },
         {
@@ -167,6 +186,7 @@
           "description": "Easy Installation",
           "image": "https://cdn-icons-png.flaticon.com/512/847/847969.png",
           "price": 12.99,
+          "quantity": 0,
           "comparePrice": 15.99
         },
         {
@@ -175,6 +195,7 @@
           "description": "Wireless Chime",
           "image": "https://cdn-icons-png.flaticon.com/512/619/619153.png",
           "price": 24.99,
+          "quantity": 0,
           "comparePrice": 29.99
         }
       ]

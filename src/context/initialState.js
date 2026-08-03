@@ -17,8 +17,11 @@ const merged = data.map((category) => {
             return savedProduct
                 ? {
                     ...product,
-                    quantity: savedProduct.quantity,
-                    selectedColor: savedProduct.selectedColor,
+                    quantity: savedProduct.quantity ?? product.quantity,
+                    selectedVariant:
+                        savedProduct.selectedVariant ?? product.selectedVariant,
+
+                    variants: savedProduct.variants ?? product.variants,
                 }
                 : product;
         }),

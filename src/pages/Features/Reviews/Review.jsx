@@ -11,10 +11,23 @@ const Review = () => {
     const selectedProducts = state.products
         .map((category) => ({
             ...category,
-            products: category.products.filter((p) => p.quantity > 0),
+            products: category.products.flatMap((product) => {
+                // Product has variants
+                if (product.variants) {
+                    return product.variants
+                        .filter((variant) => variant.quantity > 0)
+                        .map((variant) => ({
+                            ...product,
+                            quantity: variant.quantity,
+                            selectedVariant: variant,
+                        }));
+                }
+
+                // Normal product
+                return product.quantity > 0 ? [product] : [];
+            }),
         }))
         .filter((category) => category.products.length > 0);
-
     // console.log(selectedProducts);
 
     const totalPrice = selectedProducts.reduce(

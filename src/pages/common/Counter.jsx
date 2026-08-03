@@ -9,7 +9,10 @@ const Counter = ({ data, quantity, dispatch }) => {
                ${quantity === 0 ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
                 onClick={() => dispatch({
                     type: "DECREMENT",
-                    payload: { id: data.id }
+                    payload: {
+                        productId: data.id,
+                        variantId: data.selectedVariant?.id,
+                    },
                 })}
                 disabled={quantity === 0}>
                 -
@@ -23,7 +26,10 @@ const Counter = ({ data, quantity, dispatch }) => {
 
                 onClick={() => dispatch({
                     type: "INCREMENT",
-                    payload: { id: data.id }
+                    payload: {
+                        productId: data.id,
+                        variantId: data.selectedVariant,
+                    },
                 })}
                 disabled={quantity >= 10}>
                 +

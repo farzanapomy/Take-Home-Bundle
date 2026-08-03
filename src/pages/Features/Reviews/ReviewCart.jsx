@@ -25,6 +25,11 @@ const ReviewCart = ({ title, products, dispatch }) => {
 
                         <div>
                             <h6 className="text-sm font-medium">{item.name}</h6>
+                            {item.selectedVariant && (
+                                <p className="text-xs text-gray-500">
+                                    Color: {item.selectedVariant.name}
+                                </p>
+                            )}
                         </div>
                     </div>
 

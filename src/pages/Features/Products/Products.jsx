@@ -2,7 +2,10 @@ import { ACTIONS } from "../../../context/actionTypes";
 import Counter from "../../common/Counter";
 
 const Products = ({ data, dispatch }) => {
-
+    console.log(data.selectedVariant);
+    const currentVariant = data.variants?.find(
+        (v) => v.id === data.selectedVariant
+    );
     return (
         <div className={`my-3 ${data?.quantity > 0 ? "border border-[#35C759]" : ""
             }`}>
@@ -38,12 +41,12 @@ const Products = ({ data, dispatch }) => {
                                     dispatch({
                                         type: ACTIONS.SET_COLOR,
                                         payload: {
-                                            productId: data?.id,
-                                            colorId: variant?.id,
+                                            productId: data.id,
+                                            variantId: variant.id,
                                         },
                                     })
                                 }
-                                className={`flex items-center border rounded-sm p-1 px-2 cursor-pointer ${data?.selectedColor === variant.id
+                                className={`flex items-center border rounded-sm p-1 px-2 cursor-pointer ${data?.selectedVariant === variant?.id
                                     ? "border-[#35C759]"
                                     : "border-gray-300"
                                     }`}
@@ -61,7 +64,7 @@ const Products = ({ data, dispatch }) => {
                     <div className="mt-3 flex justify-between items-center">
                         <Counter
                             data={data}
-                            quantity={data?.quantity}
+                            quantity={currentVariant ? currentVariant?.quantity : data?.quantity}
                             dispatch={dispatch}
 
                         />

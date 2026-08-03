@@ -14,8 +14,10 @@ const BuilderProvider = ({ children }) => {
     const saved = state.products
       .map((category) => ({
         ...category,
-        products: category.products.filter(
-          (product) => product.quantity > 0
+        products: category.products.filter((product) =>
+          product.variants
+            ? product.variants.some((v) => v.quantity > 0)
+            : product.quantity > 0
         ),
       }))
       .filter((category) => category.products.length > 0);
